@@ -18,9 +18,15 @@ public class StackPainExample extends Application {
 	public void start(Stage primaryStage) throws Exception {
 		String javaVersion = System.getProperty("java.version");
 		String javafxVersion = System.getProperty("javafx.version");
-		Label jfxv = new Label("Hello, JavaFX " + javafxVersion);
+		Label jfxv = new Label("Hello, JavaFX " + javafxVersion + " running on Java " + javaVersion + ".\n"
+				+ "JavaFX is working properly.");
 		StackPane stackPane = new StackPane(jfxv);
-		StackPane.setAlignment(jfxv, Pos.BOTTOM_CENTER);
+		Label label2 = new Label("Hello, JavaFX ");
+		stackPane.getChildren().add(label2);
+		stackPane.setStyle("-fx-background-color: #336699;");
+		stackPane.setPrefSize(640, 480);
+		StackPane.setAlignment(label2, Pos.CENTER);
+		StackPane.setAlignment(jfxv, Pos.CENTER);
 		Scene scene = new Scene(stackPane, 640, 480); 
 		primaryStage.setScene(scene);
 		primaryStage.show();

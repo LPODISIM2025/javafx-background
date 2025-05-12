@@ -29,19 +29,25 @@ public class UtenteController implements Initializable{
 	public void initialize(URL arg0, ResourceBundle arg1) {
 		nomeText.setText("Ciao");
 		passwordText.setText("Juri");
-//		nomeText.textProperty().addListener(new ChangeListener<String>() {
-//			@Override
-//			public void changed(ObservableValue<? extends String> observable, String oldValue, String newValue) {
-//				passwordText.setText(newValue);
-//			}
-//		});
-		nomeText.textProperty().bindBidirectional(passwordText.textProperty());
+		nomeText.textProperty().addListener((obs, oldValue, newValue) ->{
+			passwordText.setText(newValue);
+			System.out.println("Nuovo valore: " + newValue);
+			System.out.println("Vecchio valore: " + oldValue);
+			System.out.println("Nuovo valore: " + passwordText.getText());
+		});
+		loginButton.setOnAction(event -> {
+			System.out.println("Login button clicked");
+			System.out.println("Nome: " + nomeText.getText());
+			System.out.println("Password: " + passwordText.getText());
+		});
+		//nomeText.textProperty().bindBidirectional(passwordText.textProperty());
 
 	}
-    @FXML
-    void submit(ActionEvent event) {
-    	System.out.println("Invocato");
-    	if("juri".equals(nomeText.getText()) && "password".equals(passwordText.getText()))
-    		System.out.println("LOGGATO");;
-    }
+	/// SE VOLETE USARE IL METODO RICORDARE DI CAMBIARE IL FILE FXML IN login.fxml E AGGIUNGERE IL METODO onClick NEL PULSANTE
+    // @FXML
+    // void submit(ActionEvent event) {
+    // 	System.out.println("Invocato");
+    // 	if("juri".equals(nomeText.getText()) && "password".equals(passwordText.getText()))
+    // 		System.out.println("LOGGATO");;
+    // }
 }

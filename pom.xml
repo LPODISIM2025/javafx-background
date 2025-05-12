@@ -30,6 +30,7 @@
 				<version>0.0.8</version>
 				<configuration>
 					<mainClass>hello.HelloFX</mainClass>
+					<javafx.version>21</javafx.version>
 				</configuration>
 			</plugin>
 		</plugins>
