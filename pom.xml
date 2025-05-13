@@ -29,7 +29,7 @@
 				<artifactId>javafx-maven-plugin</artifactId>
 				<version>0.0.8</version>
 				<configuration>
-					<mainClass>hello.HelloFX</mainClass>
+					<mainClass>hello.StrokeBindingExample</mainClass>
 					<javafx.version>21</javafx.version>
 				</configuration>
 			</plugin>
